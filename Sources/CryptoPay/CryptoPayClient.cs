@@ -16,7 +16,7 @@ namespace CryptoPay
         #region Private Fields
 
         private readonly HttpClient httpClient;
-        private static string defaultCryptoBotApiUrl { get; } = "https://pay.crypt.bot/";
+        private const string defaultCryptoBotApiUrl = "https://pay.crypt.bot/";
 
         #endregion
 
@@ -32,11 +32,7 @@ namespace CryptoPay
         /// Test api url is <code>https://testnet-pay.crypt.bot/</code>.
         /// </param>
         /// <exception cref="ArgumentNullException">If token is null.</exception>
-        [Obsolete("Add this client using dependency injection. builder.Services.AddHttpClient<ICryptoPayClient, CryptoPayClient>(...) e.g.")]
-        public CryptoPayClient(
-            string token,
-            HttpClient httpClient = null,
-            string apiUrl = default)
+        public CryptoPayClient(string token, HttpClient? httpClient = null, string? apiUrl = default)
         {
             this.httpClient = httpClient ?? new HttpClient();
             this.httpClient.BaseAddress = new Uri(apiUrl ?? defaultCryptoBotApiUrl);
