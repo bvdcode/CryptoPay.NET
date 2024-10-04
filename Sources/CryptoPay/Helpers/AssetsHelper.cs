@@ -1,7 +1,6 @@
 ﻿using System;
 using CryptoPay.Types;
 
-// ReSharper disable once CheckNamespace
 namespace CryptoPay
 {
     /// <summary>
