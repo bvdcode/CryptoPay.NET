@@ -17,22 +17,22 @@ namespace CryptoPay.Requests
         /// </summary>
         /// <param name="assets">Optional. Currency codes. Supported assets: <see cref="Assets" /></param>
         /// <param name="invoiceIds">Optional. Invoice IDs.</param>
-        /// <param name="status">Optional. Status of invoices to be returned. Available statuses: <see cref="Statuses.active"/> and <see cref="Statuses.paid"/>. Defaults to all statuses.</param>
+        /// <param name="status">Optional. Status of invoices to be returned. Available statuses: <see cref="InvoiceStatus.Active"/> and <see cref="InvoiceStatus.Paid"/>. Defaults to all statuses.</param>
         /// <param name="offset">Optional. Offset needed to return a specific subset of invoices. Default is 0.</param>
         /// <param name="count">Optional. Number of invoices to be returned. Values between 1-1000 are accepted. Defaults to 100.</param>
         public GetInvoicesRequest(
-            IEnumerable<string> assets = default,
-            IEnumerable<long> invoiceIds = default,
-            Statuses? status = default,
+            IEnumerable<string>? assets = null,
+            IEnumerable<long>? invoiceIds = null,
+            InvoiceStatus? status = default,
             int offset = 0,
             int count = 100)
             : base("getInvoices")
         {
-            this.Assets = assets;
-            this.InvoiceIds = invoiceIds;
-            this.Status = status;
-            this.Offset = offset;
-            this.Count = count;
+            Assets = assets;
+            InvoiceIds = invoiceIds;
+            Status = status;
+            Offset = offset;
+            Count = count;
         }
 
         #endregion
@@ -42,18 +42,18 @@ namespace CryptoPay.Requests
         /// Supported assets: <see cref="Assets"/>.
         /// Defaults to all assets.
         /// </summary>
-        public IEnumerable<string> Assets { get; set; }
+        public IEnumerable<string>? Assets { get; set; }
 
         /// <summary>
         /// Optional. Invoice IDs.
         /// </summary>
-        public IEnumerable<long> InvoiceIds { get; set; }
+        public IEnumerable<long>? InvoiceIds { get; set; }
 
         /// <summary>
-        /// Optional. Status of invoices to be returned. Available statuses: <see cref="Statuses"/>.
+        /// Optional. Status of invoices to be returned. Available statuses: <see cref="InvoiceStatus"/>.
         /// Defaults to all statuses.
         /// </summary>
-        public Statuses? Status { get; set; }
+        public InvoiceStatus? Status { get; set; }
 
         /// <summary>
         /// Optional. Offset needed to return a specific subset of invoices.

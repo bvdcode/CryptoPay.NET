@@ -17,7 +17,7 @@ namespace CryptoPay.Types
         /// Status of the invoice, can be either “active”, “paid” or “expired”.
         /// </summary>
         [JsonRequired]
-        public Statuses Status { get; set; }
+        public InvoiceStatus Status { get; set; }
 
         /// <summary>
         /// Hash of the invoice.
@@ -114,13 +114,13 @@ namespace CryptoPay.Types
         public string BotInvoiceUrl { get; set; } = string.Empty;
 
         /// <summary>
-        /// Optional. Price of the asset in USD. Available only if status is <see cref="Statuses.paid"/>.
+        /// Optional. Price of the asset in USD. Available only if status is <see cref="InvoiceStatus.Paid"/>.
         /// </summary>
         public string PaidUsdRate { get; set; } = string.Empty;
 
         /// <summary>
         /// Optional. Amount of service fees charged when the invoice was paid.
-        /// Available only if status is <see cref="Statuses.paid"/>.
+        /// Available only if status is <see cref="InvoiceStatus.Paid"/>.
         /// </summary>
         public double FeeAmount { get; set; }
 
@@ -132,25 +132,25 @@ namespace CryptoPay.Types
 
         /// <summary>
         /// Optional. Cryptocurrency alphabetic code for which the invoice was paid.
-        /// Available only if <see cref="CurrencyType"/> is <see cref="CurrencyTypes.fiat"/> and status is <see cref="Statuses.paid"/>.
+        /// Available only if <see cref="CurrencyType"/> is <see cref="CurrencyTypes.fiat"/> and status is <see cref="InvoiceStatus.Paid"/>.
         /// </summary>
         public string PaidAsset { get; set; } = string.Empty;
 
         /// <summary>
         /// Optional. Amount of the invoice for which the invoice was paid.
-        /// Available only if <see cref="CurrencyType"/> is <see cref="CurrencyTypes.fiat"/> and status is <see cref="Statuses.paid"/>.
+        /// Available only if <see cref="CurrencyType"/> is <see cref="CurrencyTypes.fiat"/> and status is <see cref="InvoiceStatus.Paid"/>.
         /// </summary>
         public string PaidAmount { get; set; } = string.Empty;
 
         /// <summary>
         /// Optional. The rate of the paid_asset valued in the fiat currency.
-        /// Available only if the value of the field <see cref="CurrencyType"/> is <see cref="CurrencyTypes.fiat"/> and the value of the field status is <see cref="Statuses.paid"/>.
+        /// Available only if the value of the field <see cref="CurrencyType"/> is <see cref="CurrencyTypes.fiat"/> and the value of the field status is <see cref="InvoiceStatus.Paid"/>.
         /// </summary>
         public string PaidFiatRate { get; set; } = string.Empty;
 
         /// <summary>
         /// Optional. Asset of service fees charged when the invoice was paid.
-        /// Available only if status is <see cref="Statuses.paid"/>.
+        /// Available only if status is <see cref="InvoiceStatus.Paid"/>.
         /// </summary>
         public string FeeAsset { get; set; } = string.Empty;
 

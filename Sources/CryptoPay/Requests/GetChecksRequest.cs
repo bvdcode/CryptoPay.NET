@@ -22,7 +22,7 @@ namespace CryptoPay.Requests
         public GetChecksRequest(
             IEnumerable<string> assets = default,
             IEnumerable<long> checkIds = default,
-            IEnumerable<Statuses> statuses = default,
+            IEnumerable<InvoiceStatus> statuses = default,
             int offset = 0,
             int count = 100)
             : base("getChecks")
@@ -51,7 +51,7 @@ namespace CryptoPay.Requests
         /// <summary>
         /// Optional. Offset needed to return a specific subset of check. Defaults to 0.
         /// </summary>
-        public IEnumerable<Statuses> Statuses { get; private set; }
+        public IEnumerable<InvoiceStatus> Statuses { get; private set; }
 
         /// <summary>
         /// Optional. Offset needed to return a specific subset of check. Defaults to 0.

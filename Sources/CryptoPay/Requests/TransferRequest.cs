@@ -31,16 +31,16 @@ namespace CryptoPay.Requests
             string asset,
             double amount,
             string spendId,
-            string comment = default,
-            bool? disableSendNotification = default)
+            string? comment = null,
+            bool? disableSendNotification = false)
             : base("transfer")
         {
-            this.UserId = userId;
-            this.Asset = asset;
-            this.Amount = amount;
-            this.SpendId = spendId;
-            this.Comment = comment;
-            this.DisableSendNotification = disableSendNotification;
+            UserId = userId;
+            Asset = asset;
+            Amount = amount;
+            SpendId = spendId;
+            Comment = comment;
+            DisableSendNotification = disableSendNotification;
         }
 
         /// <summary>
@@ -64,19 +64,27 @@ namespace CryptoPay.Requests
         /// </summary>
         public bool? DisableSendNotification { get; set; }
 
-
+        /// <summary>
+        /// Telegram user ID the transfer was sent to.
+        /// </summary>
         [JsonRequired]
         public long UserId { get; set; }
 
-
+        /// <summary>
+        /// Currency code. Currently, can be <see cref="Assets"/>.
+        /// </summary>
         [JsonRequired]
         public string Asset { get; set; }
 
-
+        /// <summary>
+        /// Amount of the transfer.
+        /// </summary>
         [JsonRequired]
         public double Amount { get; set; }
 
-
-        public string Comment { get; set; }
+        /// <summary>
+        /// Optional. Comment for the transfer. Users will see this comment when they receive a notification about the transfer.
+        /// </summary>
+        public string? Comment { get; set; }
     }
 }

@@ -10,13 +10,17 @@ namespace CryptoPay.Converters
     /// </summary>
     public class ArrayToStringConverter : JsonConverter<IEnumerable<string>>
     {
-
+        /// <summary>
+        /// Reads the JSON representation of the object.
+        /// </summary>
         public override IEnumerable<string> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             return JsonSerializer.Deserialize<List<string>>(ref reader, options) ?? new List<string>();
         }
 
-
+        /// <summary>
+        /// Writes the JSON representation of the object.
+        /// </summary>
         public override void Write(Utf8JsonWriter writer, IEnumerable<string> value, JsonSerializerOptions options)
         {
             var joinedString = string.Join(",", value);

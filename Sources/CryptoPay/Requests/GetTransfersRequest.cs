@@ -22,18 +22,18 @@ namespace CryptoPay.Requests
         /// <param name="offset">Optional. Offset needed to return a specific subset of transfers. Defaults to 0.</param>
         /// <param name="count">Optional. Number of transfers to be returned. Values between 1-1000 are accepted. Defaults to 100.</param>
         public GetTransfersRequest(
-            IEnumerable<string> asset = default,
-            IEnumerable<string> transferIds = default,
-            string spendId = null,
+            IEnumerable<string>? asset = null,
+            IEnumerable<string>? transferIds = null,
+            string? spendId = null,
             int offset = 0,
             int count = 100)
             : base("getTransfers")
         {
-            this.Asset = asset;
-            this.TransferIds = transferIds;
-            this.SpendId = spendId;
-            this.Offset = offset;
-            this.Count = count;
+            Asset = asset;
+            TransferIds = transferIds;
+            SpendId = spendId;
+            Offset = offset;
+            Count = count;
         }
 
         #endregion
@@ -43,17 +43,17 @@ namespace CryptoPay.Requests
         /// <summary>
         /// Optional. Cryptocurrency alphabetic code. Supported crypto from <see cref="Asset"/>. Defaults to all currencies.
         /// </summary>
-        public IEnumerable<string> Asset { get; private set; }
+        public IEnumerable<string>? Asset { get; private set; }
 
         /// <summary>
         /// Optional. List of transfer IDs.
         /// </summary>
-        public IEnumerable<string> TransferIds { get; private set; }
+        public IEnumerable<string>? TransferIds { get; private set; }
 
         /// <summary>
         /// Optional. Unique UTF-8 transfer string.
         /// </summary>
-        public string SpendId { get; set; }
+        public string? SpendId { get; set; }
 
         /// <summary>
         /// Optional. Offset needed to return a specific subset of transfers. Defaults to 0.

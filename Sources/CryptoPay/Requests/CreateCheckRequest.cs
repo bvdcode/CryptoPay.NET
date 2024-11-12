@@ -24,13 +24,13 @@ namespace CryptoPay.Requests
             string asset,
             double amount,
             long? pinToUserId,
-            string pinToUsername)
+            string? pinToUsername)
             : base("createCheck")
         {
-            this.Asset = asset;
-            this.Amount = amount;
-            this.PinToUserId = pinToUserId;
-            this.PinToUsername = pinToUsername;
+            Asset = asset;
+            Amount = amount;
+            PinToUserId = pinToUserId;
+            PinToUsername = pinToUsername;
         }
 
         #endregion
@@ -57,7 +57,7 @@ namespace CryptoPay.Requests
         /// <summary>
         /// Optional. A user with the specified username will be able to activate the check.
         /// </summary>
-        public string PinToUsername { get; set; }
+        public string? PinToUsername { get; set; }
 
         #endregion
     }

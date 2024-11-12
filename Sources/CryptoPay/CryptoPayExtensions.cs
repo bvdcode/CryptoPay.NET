@@ -156,8 +156,8 @@ namespace CryptoPay
             string asset,
             double amount,
             string spendId,
-            string comment = default,
-            bool? disableSendNotification = default,
+            string? comment = null,
+            bool? disableSendNotification = false,
             CancellationToken cancellationToken = default) =>
             await cryptoPayClientClient
                 .MakeRequestAsync(new TransferRequest(
@@ -186,9 +186,9 @@ namespace CryptoPay
         /// <exception cref="RequestException">This exception can be thrown.</exception>
         public static async Task<Transfers> GetTransfersAsync(
             this ICryptoPayClient cryptoPayClientClient,
-            IEnumerable<string> asset = default,
-            IEnumerable<string> transferIds = default,
-            string spendId = null,
+            IEnumerable<string>? asset = null,
+            IEnumerable<string>? transferIds = null,
+            string? spendId = null,
             int offset = 0,
             int count = 100,
             CancellationToken cancellationToken = default) =>
@@ -219,9 +219,9 @@ namespace CryptoPay
         /// <exception cref="RequestException">This exception can be thrown.</exception>
         public static async Task<Invoices> GetInvoicesAsync(
             this ICryptoPayClient cryptoPayClientClient,
-            IEnumerable<string> assets = default,
-            IEnumerable<long> invoiceIds = default,
-            Statuses? status = default,
+            IEnumerable<string>? assets = null,
+            IEnumerable<long>? invoiceIds = null,
+            InvoiceStatus status = default,
             int offset = 0,
             int count = 100,
             CancellationToken cancellationToken = default) =>
@@ -269,8 +269,8 @@ namespace CryptoPay
             this ICryptoPayClient cryptoPayClientClient,
             string asset,
             double amount,
-            long? pinToUserId = default,
-            string pinToUsername = default,
+            long? pinToUserId = null,
+            string? pinToUsername = null,
             CancellationToken cancellationToken = default) =>
             await cryptoPayClientClient
                 .MakeRequestAsync(new CreateCheckRequest(asset, amount, pinToUserId, pinToUsername),
@@ -312,7 +312,7 @@ namespace CryptoPay
             this ICryptoPayClient cryptoPayClientClient,
             IEnumerable<string> assets = default,
             IEnumerable<long> checkIds = default,
-            IEnumerable<Statuses> status = default,
+            IEnumerable<InvoiceStatus> status = default,
             int offset = 0,
             int count = 100,
             CancellationToken cancellationToken = default) =>

@@ -11,7 +11,7 @@ public class GetInvoicesData
         Error?,
         IList<string>?, // assets
         IList<long>?, // invoiceIds
-        Statuses?, //status
+        InvoiceStatus?, //status
         int, // offset 
         int> // count
 {
@@ -19,13 +19,13 @@ public class GetInvoicesData
     {
         this.Add(default, default, default, default, default, 0, 100);
         this.Add(default, default, default, default, default, 10, 100);
-        this.Add(default, default, default, default, Statuses.paid, 0, 10);
+        this.Add(default, default, default, default, InvoiceStatus.Paid, 0, 10);
         this.Add(
             default,
             default,
             new List<string>(),
             default,
-            Statuses.active,
+            InvoiceStatus.Active,
             5,
             15
         );
@@ -38,7 +38,7 @@ public class GetInvoicesData
                 Assets.BNB.ToString()
             },
             default,
-            Statuses.active,
+            InvoiceStatus.Active,
             0,
             10
         );
