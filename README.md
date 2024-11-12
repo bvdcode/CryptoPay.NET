@@ -12,7 +12,7 @@
 .NET Standard cryptocurrency payment library for Telegram bot @cryptobot.
 
 
-> **Note:** This dirty code is not mine, I just forked it and made a few changes.
+> **Note:** This repository was cloned because the original author irresponsibly corrupted his code.
 
 
 # Code Example
