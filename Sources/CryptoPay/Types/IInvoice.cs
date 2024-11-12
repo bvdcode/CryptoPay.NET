@@ -13,7 +13,7 @@ namespace CryptoPay.Types
         public string? Asset { get; set; }
 
         /// <summary>
-        /// Optional. Fiat currency code. Available only if the value of the field <see cref="CurrencyType"/> is <see cref="CurrencyTypes.fiat"/>.
+        /// Optional. Fiat currency code. Available only if the value of the field <see cref="CurrencyType"/> is <see cref="CurrencyType.Fiat"/>.
         /// </summary>
         public string? Fiat { get; set; }
 
@@ -53,13 +53,13 @@ namespace CryptoPay.Types
         public string? PaidBtnUrl { get; set; }
 
         /// <summary>
-        /// Type of the price, can be one of <see cref="CurrencyTypes"/>.
+        /// Type of the price, can be one of <see cref="Types.CurrencyType"/>.
         /// </summary>
-        public CurrencyTypes CurrencyType { get; set; }
+        public CurrencyType CurrencyType { get; set; }
 
         /// <summary>
         /// Optional. List of assets which can be used to pay the invoice.
-        /// Available only if <see cref="CurrencyType"/> is <see cref="CurrencyTypes.fiat"/>.
+        /// Available only if <see cref="CurrencyType"/> is <see cref="CurrencyType.Fiat"/>.
         /// Currently, can be one of crypto from <see cref="Assets"/>.
         /// </summary>
         public IEnumerable<string>? AcceptedAssets { get; set; }

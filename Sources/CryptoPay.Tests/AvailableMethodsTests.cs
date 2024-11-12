@@ -119,7 +119,7 @@ public class AvailableMethodsTests
             Assert.Equal(invoiceRequest.AllowAnonymous!.Value, invoice.AllowAnonymous);
             Assert.Equal(invoice.CreatedAt.AddSeconds(invoiceRequest.ExpiresIn).ToString("g"), invoice.ExpirationDate?.ToString("g"));
 
-            if (invoiceRequest.CurrencyType == CurrencyTypes.fiat)
+            if (invoiceRequest.CurrencyType == CurrencyType.Fiat)
             {
                 if (invoiceRequest.AcceptedAssets is null)
                 {

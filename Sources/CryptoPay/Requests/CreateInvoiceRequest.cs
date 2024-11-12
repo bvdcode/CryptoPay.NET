@@ -17,14 +17,14 @@ namespace CryptoPay.Requests
         /// Initializes a new request to create <see cref="Invoice"/>
         /// </summary>
         /// <param name="amount">Amount of the invoice in float. For example: 125.50</param>
-        /// <param name="currencyType">Optional. Type of the price, can be <see cref="CurrencyTypes.crypto"/> or <see cref="CurrencyTypes.fiat"/>. Defaults to crypto.</param>
+        /// <param name="currencyType">Optional. Type of the price, can be <see cref="CurrencyType.Crypto"/> or <see cref="CurrencyType.Fiat"/>. Defaults to crypto.</param>
         /// <param name="asset">Currency code.
         /// <remarks>Due to the fact that the list of available currencies in the CryptoPay service is constantly changing, utilizing <see cref="Assets"/> becomes ineffective. However, you can resort to using Assets.BTC.ToString() instead.</remarks>
         /// </param>
-        /// <param name="fiat">Optional. Required if currencyType is <see cref="CurrencyTypes.fiat"/>. Fiat currency code. Supported fiat currencies from <see cref="Assets"/></param>
+        /// <param name="fiat">Optional. Required if currencyType is <see cref="CurrencyType.Fiat"/>. Fiat currency code. Supported fiat currencies from <see cref="Assets"/></param>
         /// <param name="acceptedAssets">
         /// Optional. List of cryptocurrency alphabetic codes. Assets which can be used to pay the invoice.
-        /// Available only if currencyType is <see cref="CurrencyTypes.fiat"/>. Supported assets from <see cref="Assets"/>.
+        /// Available only if currencyType is <see cref="CurrencyType.Fiat"/>. Supported assets from <see cref="Assets"/>.
         /// Defaults to all currencies.
         /// </param>
         /// <param name="description">Optional. Description for the invoice. User will see this description when they pay the invoice. Up to 1024 characters.</param>
@@ -40,7 +40,7 @@ namespace CryptoPay.Requests
         /// <param name="expiresIn">You can set a payment time limit for the invoice in <b>seconds</b>. Values between 1-2678400 are accepted.</param>
         public CreateInvoiceRequest(
             double amount,
-            CurrencyTypes currencyType = CurrencyTypes.crypto,
+            CurrencyType currencyType = CurrencyType.Crypto,
             string? asset = null,
             string? fiat = null,
             IEnumerable<string>? acceptedAssets = null,
@@ -116,10 +116,10 @@ namespace CryptoPay.Requests
         public bool? AllowComments { get; set; }
 
         /// <summary>
-        /// Type of the price, can be <see cref="CurrencyTypes.crypto"/> or <see cref="CurrencyTypes.fiat"/>. Defaults to crypto.
+        /// Type of the price, can be <see cref="CurrencyType.Crypto"/> or <see cref="CurrencyType.Fiat"/>. Defaults to crypto.
         /// </summary>
         [JsonRequired]
-        public CurrencyTypes CurrencyType { get; set; }
+        public CurrencyType CurrencyType { get; set; }
 
         /// <summary>
         /// List of cryptocurrency alphabetic codes. Assets which can be used to pay the invoice.

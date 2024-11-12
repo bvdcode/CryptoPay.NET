@@ -104,9 +104,9 @@ namespace CryptoPay.Types
         public string? PaidBtnUrl { get; set; } = string.Empty;
 
         /// <summary>
-        /// Type of the price, can be one of <see cref="CurrencyTypes"/>.
+        /// Type of the price, can be one of <see cref="Types.CurrencyType"/>.
         /// </summary>
-        public CurrencyTypes CurrencyType { get; set; }
+        public CurrencyType CurrencyType { get; set; }
 
         /// <summary>
         /// Optional. List of assets which can be used to pay the invoice.
@@ -143,26 +143,26 @@ namespace CryptoPay.Types
         public double FeeAmount { get; set; }
 
         /// <summary>
-        /// Optional. Fiat currency code. Available only if the value of the field <see cref="CurrencyType"/> is <see cref="CurrencyTypes.fiat"/>.
+        /// Optional. Fiat currency code. Available only if the value of the field <see cref="CurrencyType"/> is <see cref="CurrencyType.Fiat"/>.
         /// Currently one of fiat from <see cref="Assets"/>.
         /// </summary>
         public string? Fiat { get; set; } = string.Empty;
 
         /// <summary>
         /// Optional. Cryptocurrency alphabetic code for which the invoice was paid.
-        /// Available only if <see cref="CurrencyType"/> is <see cref="CurrencyTypes.fiat"/> and status is <see cref="InvoiceStatus.Paid"/>.
+        /// Available only if <see cref="CurrencyType"/> is <see cref="CurrencyType.Fiat"/> and status is <see cref="InvoiceStatus.Paid"/>.
         /// </summary>
         public string PaidAsset { get; set; } = string.Empty;
 
         /// <summary>
         /// Optional. Amount of the invoice for which the invoice was paid.
-        /// Available only if <see cref="CurrencyType"/> is <see cref="CurrencyTypes.fiat"/> and status is <see cref="InvoiceStatus.Paid"/>.
+        /// Available only if <see cref="CurrencyType"/> is <see cref="CurrencyType.Fiat"/> and status is <see cref="InvoiceStatus.Paid"/>.
         /// </summary>
         public string PaidAmount { get; set; } = string.Empty;
 
         /// <summary>
         /// Optional. The rate of the paid_asset valued in the fiat currency.
-        /// Available only if the value of the field <see cref="CurrencyType"/> is <see cref="CurrencyTypes.fiat"/> and the value of the field status is <see cref="InvoiceStatus.Paid"/>.
+        /// Available only if the value of the field <see cref="CurrencyType"/> is <see cref="CurrencyType.Fiat"/> and the value of the field status is <see cref="InvoiceStatus.Paid"/>.
         /// </summary>
         public string PaidFiatRate { get; set; } = string.Empty;
 

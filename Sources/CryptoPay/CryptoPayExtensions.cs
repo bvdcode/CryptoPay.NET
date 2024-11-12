@@ -31,14 +31,14 @@ namespace CryptoPay
         /// </summary>
         /// <param name="cryptoPayClientClient"><see cref="CryptoPayClient" /></param>
         /// <param name="amount">Amount of the invoice in float. For example: 125.50.</param>
-        /// <param name="currencyType">Optional. Type of the price, can be <see cref="CurrencyTypes.crypto"/> or <see cref="CurrencyTypes.fiat"/>. Defaults to <see cref="CurrencyTypes.crypto"/>.</param>
-        /// <param name="asset">Optional. Required if currencyType is <see cref="CurrencyTypes.crypto"/>. Cryptocurrency alphabetic code.
+        /// <param name="currencyType">Optional. Type of the price, can be <see cref="CurrencyType.Crypto"/> or <see cref="CurrencyType.Fiat"/>. Defaults to <see cref="CurrencyType.Crypto"/>.</param>
+        /// <param name="asset">Optional. Required if currencyType is <see cref="CurrencyType.Crypto"/>. Cryptocurrency alphabetic code.
         /// <remarks>Due to the fact that the list of available currencies in the CryptoPay service is constantly changing, utilizing <see cref="Assets"/> becomes ineffective. However, you can resort to using Assets.BTC.ToString() instead.</remarks>
         /// </param>
-        /// <param name="fiats">Optional. Required if currencyType is <see cref="CurrencyTypes.fiat"/>. Fiat currency code.</param>
+        /// <param name="fiats">Optional. Required if currencyType is <see cref="CurrencyType.Fiat"/>. Fiat currency code.</param>
         /// <param name="acceptedAssets">
         /// Optional. List of cryptocurrency alphabetic codes. Assets which can be used to pay the invoice.
-        /// Available only if currencyType is <see cref="CurrencyTypes.fiat"/>. Supported assets from <see cref="Assets"/>.
+        /// Available only if currencyType is <see cref="CurrencyType.Fiat"/>. Supported assets from <see cref="Assets"/>.
         /// Defaults to all currencies.
         /// </param>
         /// <param name="description">Optional. Description for the invoice. User will see this description when they pay the invoice. Up to 1024 characters.</param>
@@ -58,7 +58,7 @@ namespace CryptoPay
         public static async Task<Invoice> CreateInvoiceAsync(
             this ICryptoPayClient cryptoPayClientClient,
             double amount,
-            CurrencyTypes currencyType = CurrencyTypes.crypto,
+            CurrencyType currencyType = CurrencyType.Crypto,
             string? asset = null,
             string? fiats = null,
             IEnumerable<string>? acceptedAssets = null,

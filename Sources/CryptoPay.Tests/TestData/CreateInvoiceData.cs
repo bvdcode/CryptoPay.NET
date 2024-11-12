@@ -21,7 +21,7 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
             default,
             new CreateInvoiceRequest(
                 1.105,
-                CurrencyTypes.fiat,
+                CurrencyType.Fiat,
                 fiat: Assets.USD.ToString())
         );
         this.Add(
@@ -44,7 +44,7 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
             default,
             new CreateInvoiceRequest(
                 2.35,
-                CurrencyTypes.fiat,
+                CurrencyType.Fiat,
                 default,
                 Assets.EUR.ToString(),
                 default,
@@ -63,7 +63,7 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
             default,
             new CreateInvoiceRequest(
                 0.0234,
-                CurrencyTypes.crypto,
+                CurrencyType.Crypto,
                 Assets.BNB.ToString(),
                 default,
                 default,
@@ -82,7 +82,7 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
             default,
             new CreateInvoiceRequest(
                 1.23,
-                CurrencyTypes.fiat,
+                CurrencyType.Fiat,
                 default,
                 Assets.EUR.ToString(),
                 new []{ Assets.TON.ToString(), Assets.USDT.ToString() },

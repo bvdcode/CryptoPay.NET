@@ -29,7 +29,7 @@ public class DeleteInvoicesData : TheoryData<HttpStatusCode, Error?, CreateInvoi
             default,
             new CreateInvoiceRequest(
                 2.35,
-                currencyType: CurrencyTypes.fiat,
+                currencyType: CurrencyType.Fiat,
                 asset: default,
                 fiat: Assets.EUR.ToString(),
                 acceptedAssets: default,
