@@ -30,8 +30,11 @@ const string apiKey = "your-api-key";
 var client = new CryptoPayClient(apiKey);
 // or with custom base URL
 var client = new CryptoPayClient(apiKey, apiUrl: "https://testnet-pay.crypt.bot/");
+```
 
-// Create an invoice
+3. Create an invoice
+
+```csharp
 var invoice = await client.CreateInvoiceAsync(
     Assets.BNB,
     1.1,
@@ -39,8 +42,11 @@ var invoice = await client.CreateInvoiceAsync(
     paid_btn_name: PaidButtonNames.viewItem,
     paid_btn_url: "https://example.com/success",
     cancellationToken: cancellationToken);
+```
 
-// Get an invoice
+4. Get an invoice and handle the payment
+
+```csharp
 while (true)
 {
     var invoices = await client.GetInvoicesAsync(invoiceIds: new[] { invoice.Id });
