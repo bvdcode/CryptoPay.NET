@@ -25,6 +25,6 @@ var invoice = await cryptoPayClient.CreateInvoiceAsync(
     1.505,
     description: "test",
     paid_btn_name: PaidButtonNames.viewItem,
-    paid_btn_url: "https://placekitten.com/150",
+    paid_btn_url: "https://example.com/success",
     cancellationToken: cancellationToken);
 ```
