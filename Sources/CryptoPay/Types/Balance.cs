@@ -23,6 +23,6 @@ namespace CryptoPay.Types
         /// Unavailable amount currently is on hold in float.
         /// </summary>
         [JsonRequired]
-        public string Onhold { get; set; }
+        public string Onhold { get; set; } = string.Empty;
     }
 }

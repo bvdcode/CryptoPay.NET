@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace CryptoPay
 {
     /// <summary>
-    /// Crypto Pay Allowed methods. 
+    /// Crypto Pay API Methods.
     /// </summary>
     public static class CryptoPayExtensions
     {
@@ -43,9 +43,9 @@ namespace CryptoPay
         /// </param>
         /// <param name="description">Optional. Description for the invoice. User will see this description when they pay the invoice. Up to 1024 characters.</param>
         /// <param name="hiddenMessage">Optional. Text of the message that will be shown to a user after the invoice is paid. Up to 2048 characters.</param>
-        /// <param name="paidBtnName">Optional. Name of the button that will be shown to a user after the invoice is paid. <see cref="PaidButtonNames" /></param>
+        /// <param name="paidBtnName">Optional. Name of the button that will be shown to a user after the invoice is paid. <see cref="PaidButtonName" /></param>
         /// <param name="paidBtnUrl">
-        /// Optional. Required if <see cref="PaidButtonNames">paidBtnName</see> is used. URL to be opened when the button is pressed.
+        /// Optional. Required if <see cref="PaidButtonName">paidBtnName</see> is used. URL to be opened when the button is pressed.
         /// You can set any success link (for example, a link to your bot). Starts with https or http.
         /// </param>
         /// <param name="payload">Optional.Any data you want to attach to the invoice (for example, user ID, payment ID, ect). Up to 4kb.</param>
@@ -64,7 +64,7 @@ namespace CryptoPay
             IEnumerable<string>? acceptedAssets = null,
             string? description = null,
             string? hiddenMessage = null,
-            PaidButtonNames paidBtnName = default,
+            PaidButtonName paidBtnName = default,
             string? paidBtnUrl = null,
             string? payload = null,
             bool allowComments = true,
@@ -302,7 +302,7 @@ namespace CryptoPay
         /// <remarks>Due to the fact that the list of available currencies in the CryptoPay service is constantly changing, utilizing <see cref="Assets"/> becomes ineffective. However, you can resort to using Assets.BTC.ToString() instead.</remarks>
         /// </param>
         /// <param name="checkIds">Optional. List of check IDs.</param>
-        /// <param name="status">Optional. Status of check to be returned. Available statuses: <see cref="CheckStatus"/>. Defaults to all statuses.</param>
+        /// <param name="statuses">Optional. Status of check to be returned. Available statuses: <see cref="CheckStatus"/>. Defaults to all statuses.</param>
         /// <param name="offset">Optional. Offset needed to return a specific subset of check. Defaults to 0.</param>
         /// <param name="count">Optional. Number of check to be returned. Values between 1-1000 are accepted. Defaults to 100.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -310,9 +310,9 @@ namespace CryptoPay
         /// <exception cref="RequestException">This exception can be thrown.</exception>
         public static async Task<Checks> GetChecksAsync(
             this ICryptoPayClient cryptoPayClientClient,
-            IEnumerable<string> assets = default,
-            IEnumerable<long> checkIds = default,
-            IEnumerable<InvoiceStatus> status = default,
+            IEnumerable<string>? assets = null,
+            IEnumerable<long>? checkIds = null,
+            IEnumerable<InvoiceStatus>? statuses = null,
             int offset = 0,
             int count = 100,
             CancellationToken cancellationToken = default) =>
@@ -320,7 +320,7 @@ namespace CryptoPay
                 .MakeRequestAsync(new GetChecksRequest(
                         assets,
                         checkIds,
-                        status,
+                        statuses,
                         offset,
                         count),
                     cancellationToken)

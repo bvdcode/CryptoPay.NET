@@ -43,9 +43,9 @@ namespace CryptoPay.Types
         public string? Payload { get; set; }
 
         /// <summary>
-        /// Optional. Name of the button, can be one of <see cref="PaidButtonNames" />.
+        /// Optional. Name of the button, can be one of <see cref="PaidButtonName" />.
         /// </summary>
-        public PaidButtonNames PaidBtnName { get; set; }
+        public PaidButtonName PaidBtnName { get; set; }
 
         /// <summary>
         /// Optional. URL of the button.
@@ -62,6 +62,6 @@ namespace CryptoPay.Types
         /// Available only if <see cref="CurrencyType"/> is <see cref="CurrencyTypes.fiat"/>.
         /// Currently, can be one of crypto from <see cref="Assets"/>.
         /// </summary>
-        public IEnumerable<string> AcceptedAssets { get; set; }
+        public IEnumerable<string>? AcceptedAssets { get; set; }
     }
 }

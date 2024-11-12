@@ -62,7 +62,7 @@ public class AvailableMethodsTests
         try
         {
             var localCryptoPayClient = new CryptoPayClient(token, apiUrl: apiUrl);
-            var application = await localCryptoPayClient.GetMeAsync(this.cancellationToken);
+            var application = await localCryptoPayClient.GetMeAsync(cancellationToken);
 
             Assert.NotNull(application);
             Assert.NotEmpty(application.Name);
@@ -84,7 +84,7 @@ public class AvailableMethodsTests
     {
         try
         {
-            var invoice = await this.cryptoPayClient.CreateInvoiceAsync(
+            var invoice = await cryptoPayClient.CreateInvoiceAsync(
                 invoiceRequest.Amount,
                 invoiceRequest.CurrencyType,
                 invoiceRequest.Asset,
@@ -140,28 +140,28 @@ public class AvailableMethodsTests
     [Fact]
     public async Task GetBalanceTest()
     {
-        var balance = await this.cryptoPayClient.GetBalanceAsync(this.cancellationToken);
+        var balance = await cryptoPayClient.GetBalanceAsync(cancellationToken);
 
         Assert.NotNull(balance);
-        Assert.True(balance.Any());
+        Assert.True(balance.Count > 0);
     }
 
     [Fact]
     public async Task GetExchangeRatesTest()
     {
-        var exchangeRates = await this.cryptoPayClient.GetExchangeRatesAsync(this.cancellationToken);
+        var exchangeRates = await cryptoPayClient.GetExchangeRatesAsync(cancellationToken);
 
         Assert.NotNull(exchangeRates);
-        Assert.True(exchangeRates.Any());
+        Assert.True(exchangeRates.Count > 0);
     }
 
     [Fact]
     public async Task GetCurrenciesTest()
     {
-        var currencies = await this.cryptoPayClient.GetCurrenciesAsync(this.cancellationToken);
+        var currencies = await cryptoPayClient.GetCurrenciesAsync(cancellationToken);
 
         Assert.NotNull(currencies);
-        Assert.True(currencies.Any());
+        Assert.True(currencies.Count > 0);
     }
 
     /// <summary>
@@ -173,7 +173,7 @@ public class AvailableMethodsTests
     {
         try
         {
-            var transfer = await this.cryptoPayClient.TransferAsync(
+            var transfer = await cryptoPayClient.TransferAsync(
                 transferRequest.UserId,
                 transferRequest.Asset,
                 transferRequest.Amount,
@@ -205,7 +205,7 @@ public class AvailableMethodsTests
     {
         try
         {
-            var transfer = await this.cryptoPayClient.TransferAsync(
+            var transfer = await cryptoPayClient.TransferAsync(
                 transferRequest.UserId,
                 transferRequest.Asset,
                 transferRequest.Amount,
@@ -214,7 +214,7 @@ public class AvailableMethodsTests
                 transferRequest.DisableSendNotification,
                 this.cancellationToken);
 
-            var transfers = await this.cryptoPayClient.GetTransfersAsync(cancellationToken: this.cancellationToken);
+            var transfers = await cryptoPayClient.GetTransfersAsync(cancellationToken: this.cancellationToken);
 
             Assert.NotNull(transfer);
 
@@ -240,7 +240,7 @@ public class AvailableMethodsTests
     {
         try
         {
-            var invoices = await this.cryptoPayClient.GetInvoicesAsync(
+            var invoices = await cryptoPayClient.GetInvoicesAsync(
                 assets,
                 invoiceIds,
                 status,
@@ -262,7 +262,7 @@ public class AvailableMethodsTests
     {
         try
         {
-            var invoice = await this.cryptoPayClient.CreateInvoiceAsync(
+            var invoice = await cryptoPayClient.CreateInvoiceAsync(
                 invoiceRequest.Amount,
                 invoiceRequest.CurrencyType,
                 invoiceRequest.Asset,
@@ -278,7 +278,7 @@ public class AvailableMethodsTests
                 invoiceRequest.ExpiresIn,
                 this.cancellationToken);
 
-            var deleted = await this.cryptoPayClient.DeleteInvoiceAsync(invoice.InvoiceId, this.cancellationToken);
+            var deleted = await cryptoPayClient.DeleteInvoiceAsync(invoice.InvoiceId, this.cancellationToken);
 
             Assert.NotNull(invoice);
             Assert.True(deleted);
@@ -295,7 +295,7 @@ public class AvailableMethodsTests
     {
         try
         {
-            var check = await this.cryptoPayClient.CreateCheckAsync(
+            var check = await cryptoPayClient.CreateCheckAsync(
                 createCheckRequest.Asset,
                 createCheckRequest.Amount,
                 createCheckRequest.PinToUserId,
@@ -319,14 +319,14 @@ public class AvailableMethodsTests
     {
         try
         {
-            var check = await this.cryptoPayClient.CreateCheckAsync(
+            var check = await cryptoPayClient.CreateCheckAsync(
                 createCheckRequest.Asset,
                 createCheckRequest.Amount,
                 createCheckRequest.PinToUserId,
                 createCheckRequest.PinToUsername,
                 this.cancellationToken);
 
-            var deleted = await this.cryptoPayClient.DeleteCheckAsync(check.CheckId, this.cancellationToken);
+            var deleted = await cryptoPayClient.DeleteCheckAsync(check.CheckId, this.cancellationToken);
 
             Assert.True(deleted);
         }
@@ -342,7 +342,7 @@ public class AvailableMethodsTests
     {
         try
         {
-            var check = await this.cryptoPayClient.CreateCheckAsync(
+            var check = await cryptoPayClient.CreateCheckAsync(
                 createCheckRequest.Asset,
                 createCheckRequest.Amount,
                 createCheckRequest.PinToUserId,
@@ -352,7 +352,7 @@ public class AvailableMethodsTests
             Assert.NotNull(check);
 
             var assets = new[] { check.Asset, Enum.GetName(Assets.BTC) };
-            var checks = await this.cryptoPayClient.GetChecksAsync(
+            var checks = await cryptoPayClient.GetChecksAsync(
                 assets,
                 [check.CheckId],
                 cancellationToken: this.cancellationToken);
@@ -372,7 +372,7 @@ public class AvailableMethodsTests
     {
         try
         {
-            var stats = await this.cryptoPayClient.GetStatsAsync(
+            var stats = await cryptoPayClient.GetStatsAsync(
                 getStatsRequest.StartAt,
                 getStatsRequest.EndAt,
                 this.cancellationToken);

@@ -17,12 +17,12 @@ namespace CryptoPay.Types
         /// Your application Name.
         /// </summary>
         [JsonRequired]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// Payment processing bot username, main or test bot username.
         /// </summary>
         [JsonRequired]
-        public string PaymentProcessingBotUsername { get; set; }
+        public string? PaymentProcessingBotUsername { get; set; }
     }
 }

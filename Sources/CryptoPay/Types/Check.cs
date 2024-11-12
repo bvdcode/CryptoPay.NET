@@ -20,13 +20,13 @@ namespace CryptoPay.Types
         /// Hash of the check.
         /// </summary>
         [JsonRequired]
-        public string Hash { get; set; }
+        public string Hash { get; set; } = string.Empty;
 
         /// <summary>
         /// Cryptocurrency alphabetic code. Currently, can be one of <see cref="Assets"/>.
         /// </summary>
         [JsonRequired]
-        public string Asset { get; set; }
+        public string Asset { get; set; } = string.Empty;
 
         /// <summary>
         /// Amount of the check in float.
@@ -38,7 +38,7 @@ namespace CryptoPay.Types
         /// URL should be provided to the user to activate the check.
         /// </summary>
         [JsonRequired]
-        public string BotCheckUrl { get; set; }
+        public string? BotCheckUrl { get; set; }
 
         /// <summary>
         /// Status of the check, can be <see cref="CheckStatus.active"/> or <see cref="CheckStatus.activated"/>.

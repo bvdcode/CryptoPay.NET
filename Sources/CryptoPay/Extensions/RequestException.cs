@@ -30,8 +30,8 @@ namespace CryptoPay.Exceptions
         public RequestException(string message, Error error, HttpStatusCode httpStatusCode)
             : base(PrepareErrorMessage(message, error))
         {
-            this.Error = error;
-            this.HttpStatusCode = httpStatusCode;
+            Error = error;
+            HttpStatusCode = httpStatusCode;
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace CryptoPay.Exceptions
         /// <summary>
         /// Error from response.
         /// </summary>
-        public Error Error { get; }
+        public Error Error { get; } = new Error(0, "Unknown");
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static string PrepareErrorMessage(string message, Error error)

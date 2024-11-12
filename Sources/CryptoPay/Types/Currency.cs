@@ -30,18 +30,18 @@ namespace CryptoPay.Types
         /// Name.
         /// </summary>
         [JsonRequired]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// Code.
         /// </summary>
         [JsonRequired]
-        public string Code { get; set; }
+        public string? Code { get; set; }
 
         /// <summary>
         /// Url.
         /// </summary>
-        public string Url { get; set; }
+        public string? Url { get; set; }
 
         /// <summary>
         /// Number of decimal places. 

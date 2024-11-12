@@ -5,13 +5,14 @@ using System.Text.Json.Serialization;
 
 namespace CryptoPay.Requests.Base
 {
-
-    /// <inheritdoc />
+    /// <summary>
+    /// Base class for all requests.
+    /// </summary>
     public class RequestBase<TResponse> : IRequest<TResponse>
     {
-        #region Public Methods
-
-
+        /// <summary>
+        /// Convert request to <see cref="HttpContent"/>.
+        /// </summary>
         public HttpContent ToHttpContent()
         {
             var options = new JsonSerializerOptions()
@@ -21,13 +22,9 @@ namespace CryptoPay.Requests.Base
                 NumberHandling = JsonNumberHandling.AllowReadingFromString | JsonNumberHandling.WriteAsString
             };
 
-            var payload = JsonSerializer.Serialize(this, this.GetType(), options);
+            var payload = JsonSerializer.Serialize(this, GetType(), options);
             return new StringContent(payload, Encoding.UTF8, "application/json");
         }
-
-        #endregion
-
-        #region Constructors
 
         /// <summary>
         /// Initializes an instance of request.
@@ -43,20 +40,18 @@ namespace CryptoPay.Requests.Base
         /// <param name="method">HTTP method to use.</param>
         protected RequestBase(string methodName, HttpMethod method)
         {
-            this.MethodName = methodName;
-            this.Method = method;
+            MethodName = methodName;
+            Method = method;
         }
 
-        #endregion
-
-        #region Public Fields
-
-
+        /// <summary>
+        /// HTTP method to use.
+        /// </summary>
         public HttpMethod Method { get; }
 
-
+        /// <summary>
+        /// Bot API method.
+        /// </summary>
         public string MethodName { get; }
-
-        #endregion
     }
 }

@@ -1,10 +1,12 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Text.Json.Serialization;
 
 namespace CryptoPay.Types
 {
     /// <summary>
     /// Error from response.
     /// </summary>
+    [Serializable]
     public class Error
     {
         /// <summary>
@@ -14,8 +16,8 @@ namespace CryptoPay.Types
         /// <param name="name"></param>
         public Error(int code, string name)
         {
-            this.Code = code;
-            this.Name = name;
+            Code = code;
+            Name = name;
         }
 
         [JsonConstructor]
@@ -31,6 +33,6 @@ namespace CryptoPay.Types
         /// Error name from response.
         /// </summary>
         [JsonRequired]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
     }
 }

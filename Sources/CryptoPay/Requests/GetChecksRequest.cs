@@ -9,8 +9,6 @@ namespace CryptoPay.Requests
     /// </summary>
     public class GetChecksRequest : ParameterlessRequest<Checks>
     {
-        #region Constructors
-
         /// <summary>
         /// Initializes a new request to get list of <see cref="Check"/>
         /// </summary>
@@ -20,38 +18,34 @@ namespace CryptoPay.Requests
         /// <param name="offset">Optional. Offset needed to return a specific subset of check. Defaults to 0.</param>
         /// <param name="count">Optional. Number of check to be returned. Values between 1-1000 are accepted. Defaults to 100.</param>
         public GetChecksRequest(
-            IEnumerable<string> assets = default,
-            IEnumerable<long> checkIds = default,
-            IEnumerable<InvoiceStatus> statuses = default,
+            IEnumerable<string>? assets = null,
+            IEnumerable<long>? checkIds = null,
+            IEnumerable<InvoiceStatus>? statuses = null,
             int offset = 0,
             int count = 100)
             : base("getChecks")
         {
-            this.Assets = assets;
-            this.CheckIds = checkIds;
-            this.Statuses = statuses;
-            this.Offset = offset;
-            this.Count = count;
+            Assets = assets;
+            CheckIds = checkIds;
+            Statuses = statuses;
+            Offset = offset;
+            Count = count;
         }
-
-        #endregion
-
-        #region Public Fields
 
         /// <summary>
         /// Optional. Cryptocurrency alphabetic code. Supported crypto from <see cref="Assets"/>. Defaults to all currencies.
         /// </summary>
-        public IEnumerable<string> Assets { get; private set; }
+        public IEnumerable<string>? Assets { get; private set; }
 
         /// <summary>
         /// Optional. List of check IDs.
         /// </summary>
-        public IEnumerable<long> CheckIds { get; private set; }
+        public IEnumerable<long>? CheckIds { get; private set; }
 
         /// <summary>
         /// Optional. Offset needed to return a specific subset of check. Defaults to 0.
         /// </summary>
-        public IEnumerable<InvoiceStatus> Statuses { get; private set; }
+        public IEnumerable<InvoiceStatus>? Statuses { get; private set; }
 
         /// <summary>
         /// Optional. Offset needed to return a specific subset of check. Defaults to 0.
@@ -62,7 +56,5 @@ namespace CryptoPay.Requests
         /// Optional. Number of check to be returned. Values between 1-1000 are accepted. Defaults to 100.
         /// </summary>
         public int Count { get; private set; }
-
-        #endregion
     }
 }

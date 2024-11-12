@@ -83,17 +83,35 @@ namespace CryptoPay.Types
         /// </summary>
         public bool? AllowComments { get; set; }
 
-        public string HiddenMessage { get; set; }
+        /// <summary>
+        /// Optional. Hidden message for the invoice.
+        /// </summary>
+        public string? HiddenMessage { get; set; }
 
-        public string Payload { get; set; }
+        /// <summary>
+        /// Optional. Previously provided data for this invoice.
+        /// </summary>
+        public string? Payload { get; set; }
 
-        public PaidButtonNames PaidBtnName { get; set; }
+        /// <summary>
+        /// Optional. Name of the button, can be one of <see cref="PaidButtonName"/>.
+        /// </summary>
+        public PaidButtonName PaidBtnName { get; set; }
 
-        public string PaidBtnUrl { get; set; } = string.Empty;
+        /// <summary>
+        /// Optional. URL of the button.
+        /// </summary>
+        public string? PaidBtnUrl { get; set; } = string.Empty;
 
+        /// <summary>
+        /// Type of the price, can be one of <see cref="CurrencyTypes"/>.
+        /// </summary>
         public CurrencyTypes CurrencyType { get; set; }
 
-        public IEnumerable<string> AcceptedAssets { get; set; }
+        /// <summary>
+        /// Optional. List of assets which can be used to pay the invoice.
+        /// </summary>
+        public IEnumerable<string>? AcceptedAssets { get; set; }
 
         /// <summary>
         /// Optional. Amount of charged service fees.
@@ -128,7 +146,7 @@ namespace CryptoPay.Types
         /// Optional. Fiat currency code. Available only if the value of the field <see cref="CurrencyType"/> is <see cref="CurrencyTypes.fiat"/>.
         /// Currently one of fiat from <see cref="Assets"/>.
         /// </summary>
-        public string Fiat { get; set; } = string.Empty;
+        public string? Fiat { get; set; } = string.Empty;
 
         /// <summary>
         /// Optional. Cryptocurrency alphabetic code for which the invoice was paid.

@@ -23,6 +23,6 @@
         /// <summary>
         /// Optional. Comment for this transfer.
         /// </summary>
-        public string Comment { get; set; }
+        public string? Comment { get; set; }
     }
 }

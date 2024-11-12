@@ -17,8 +17,8 @@ namespace CryptoPay.Responses
             bool ok,
             TResult result)
         {
-            this.Ok = ok;
-            this.Result = result;
+            Ok = ok;
+            Result = result;
         }
 
         [JsonConstructor]
@@ -28,6 +28,6 @@ namespace CryptoPay.Responses
         public bool Ok { get; set; }
 
 
-        public TResult Result { get; set; }
+        public TResult Result { get; set; } = default!;
     }
 }

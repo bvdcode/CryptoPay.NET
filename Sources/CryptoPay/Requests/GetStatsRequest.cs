@@ -8,6 +8,7 @@ namespace CryptoPay.Requests
     /// <summary>
     ///  Use this request to get application statistics. On success, returns <see cref="AppStats"/>.
     /// </summary>
+    [Serializable]
     public class GetStatsRequest : ParameterlessRequest<AppStats>
     {
         #region Constructors
@@ -23,8 +24,8 @@ namespace CryptoPay.Requests
             : base("getStats")
         {
             var dt = DateTime.UtcNow;
-            this.StartAt = startAt ?? dt.AddHours(-24);
-            this.EndAt = endAt ?? dt;
+            StartAt = startAt ?? dt.AddHours(-24);
+            EndAt = endAt ?? dt;
         }
 
         #endregion

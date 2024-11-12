@@ -29,9 +29,9 @@ namespace CryptoPay.Requests
         /// </param>
         /// <param name="description">Optional. Description for the invoice. User will see this description when they pay the invoice. Up to 1024 characters.</param>
         /// <param name="hiddenMessage">Optional. Text of the message that will be shown to a user after the invoice is paid. Up to 2048 characters.</param>
-        /// <param name="paidBtnName">Optional. Name of the button that will be shown to a user after the invoice is paid. <see cref="PaidButtonNames" /></param>
+        /// <param name="paidBtnName">Optional. Name of the button that will be shown to a user after the invoice is paid. <see cref="PaidButtonName" /></param>
         /// <param name="paidBtnUrl">
-        /// Optional. Required if <see cref="PaidButtonNames">paidBtnName</see> is used. URL to be opened when the button is pressed.
+        /// Optional. Required if <see cref="PaidButtonName">paidBtnName</see> is used. URL to be opened when the button is pressed.
         /// You can set any success link (for example, a link to your bot). Starts with https or http.
         /// </param>
         /// <param name="payload">Optional.Any data you want to attach to the invoice (for example, user ID, payment ID, ect). Up to 4kb.</param>
@@ -46,7 +46,7 @@ namespace CryptoPay.Requests
             IEnumerable<string>? acceptedAssets = null,
             string? description = null,
             string? hiddenMessage = null,
-            PaidButtonNames paidBtnName = default,
+            PaidButtonName paidBtnName = default,
             string? paidBtnUrl = null,
             string? payload = null,
             bool allowComments = true,
@@ -98,7 +98,7 @@ namespace CryptoPay.Requests
         /// <summary>
         /// Name of the button that will be shown to a user after the invoice is paid.
         /// </summary>
-        public PaidButtonNames PaidBtnName { get; set; }
+        public PaidButtonName PaidBtnName { get; set; }
 
         /// <summary>
         /// URL to be opened when the button is pressed.

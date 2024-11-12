@@ -32,7 +32,7 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
                 asset: Assets.TON.ToString(),
                 description: "description",
                 hiddenMessage: "hiddenMessage",
-                paidBtnName: PaidButtonNames.callback,
+                paidBtnName: PaidButtonName.Callback,
                 paidBtnUrl: "https://t.me/paidBtnUrl",
                 payload: "payload",
                 allowComments: false,
@@ -50,7 +50,7 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
                 default,
                 "description",
                 "hiddenMessage",
-                PaidButtonNames.callback,
+                PaidButtonName.Callback,
                 "https://t.me/paidBtnUrl",
                 "payload",
                 true,
@@ -69,7 +69,7 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
                 default,
                 "description",
                 "hiddenMessage",
-                PaidButtonNames.callback,
+                PaidButtonName.Callback,
                 "https://t.me/paidBtnUrl",
                 "payload",
                 true,
@@ -96,7 +96,7 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
             new CreateInvoiceRequest(
                 0.105,
                 asset: Assets.TON.ToString(),
-                paidBtnName: PaidButtonNames.callback)
+                paidBtnName: PaidButtonName.Callback)
         );
         this.Add(
             HttpStatusCode.BadRequest,
@@ -104,7 +104,7 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
             new CreateInvoiceRequest(
                 0.123,
                 asset: "FFF",
-                paidBtnName: PaidButtonNames.callback)
+                paidBtnName: PaidButtonName.Callback)
         );
     }
 }

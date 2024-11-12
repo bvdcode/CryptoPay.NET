@@ -14,8 +14,8 @@ namespace CryptoPay.Responses
         /// <param name="error">Instanse of <see cref="Error"/>.</param>
         public ApiResponseWithError(Error error)
         {
-            this.Ok = false;
-            this.Error = error;
+            Ok = false;
+            Error = error;
         }
 
         [JsonConstructor]
@@ -29,6 +29,6 @@ namespace CryptoPay.Responses
         /// Instance of <see cref="Error"/>.
         /// </summary>
         [JsonRequired]
-        public Error Error { get; set; }
+        public Error Error { get; set; } = new Error(0, "Unknown");
     }
 }

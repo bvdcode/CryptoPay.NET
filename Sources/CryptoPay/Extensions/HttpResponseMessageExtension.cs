@@ -54,13 +54,13 @@ namespace CryptoPay.Extensions
             CancellationToken cancellationToken)
             where T : class
         {
-            Stream contentStream = null;
+            Stream? contentStream = null;
 
             if (httpResponse.Content is null)
             {
                 throw new RequestException(
                     "Response doesn't contain any content",
-                    null,
+                    new Error(0, nameof(NullReferenceException)),
                     httpResponse.StatusCode
                 );
             }
@@ -95,7 +95,7 @@ namespace CryptoPay.Extensions
                 {
                     throw CreateRequestException(
                         httpResponse,
-                        (deserializedObject as ApiResponseWithError)?.Error);
+                        (deserializedObject as ApiResponseWithError)?.Error ?? new Error(0, "Unknown"));
                 }
 
                 return deserializedObject;
@@ -114,14 +114,14 @@ namespace CryptoPay.Extensions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static RequestException CreateRequestException(
             HttpResponseMessage httpResponse,
-            Error error = default,
-            string message = default,
-            Exception exception = default
+            Error? error = null,
+            string? message = null,
+            Exception? exception = null
         ) =>
             exception is null
                 ? new RequestException(
-                    message,
-                    error,
+                    message ?? "Unknown",
+                    error ?? new Error(0, "Unknown"),
                     httpResponse.StatusCode
                 )
                 : new RequestException(

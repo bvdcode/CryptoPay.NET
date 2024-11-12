@@ -29,13 +29,13 @@ namespace CryptoPay.Types
         /// Source currency.
         /// </summary>
         [JsonRequired]
-        public string Source { get; set; }
+        public string? Source { get; set; }
 
         /// <summary>
         /// Target currency. 
         /// </summary>
         [JsonRequired]
-        public string Target { get; set; }
+        public string? Target { get; set; }
 
         /// <summary>
         /// Exchange rate.
