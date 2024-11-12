@@ -12,19 +12,59 @@
 .NET Standard cryptocurrency payment library for Telegram bot @cryptobot.
 
 
-> **Note:** This dirty code is not mine, I just forked it and made a few changes.
+> **Note:** This repository was cloned because the original author irresponsibly corrupted his code.
 
 
-# Code Example
+# Usage
+
+1. Install the [NuGet package](https://www.nuget.org/packages/CryptoPay.NET/):
+
+```bash
+dotnet add package CryptoPay.NET
+```
+
+2. Create a new instance of the `CryptoPayClient` class:
 
 ```csharp
+const string apiKey = "your-api-key";
 var client = new CryptoPayClient(apiKey);
+// or with custom base URL
+var client = new CryptoPayClient(apiKey, apiUrl: "https://testnet-pay.crypt.bot/");
 
-var invoice = await cryptoPayClient.CreateInvoiceAsync(
+// Create an invoice
+var invoice = await client.CreateInvoiceAsync(
     Assets.BNB,
-    1.505,
+    1.1,
     description: "test",
     paid_btn_name: PaidButtonNames.viewItem,
-    paid_btn_url: "https://placekitten.com/150",
+    paid_btn_url: "https://example.com/success",
     cancellationToken: cancellationToken);
+
+// Get an invoice
+while (true)
+{
+    var invoices = await client.GetInvoicesAsync(invoiceIds: new[] { invoice.Id });
+    var invoice = invoices.Items.FirstOrDefault();
+    if (invoice == null)
+    {
+        continue;
+    }
+    if (invoice.Status == CryptoPay.Types.Statuses.paid)
+    {
+        // Invoice is paid
+        HandlePaidInvoice(invoice);
+        break;
+    }
+    await Task.Delay(1000);
+}
+
+void HandlePaidInvoice(Invoice invoice)
+{
+    // Handle paid invoice
+}
 ```
+
+
+# License
+
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/bvdcode/CryptoPay.NET/blob/main/LICENSE.md) file for details.
