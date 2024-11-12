@@ -5,7 +5,7 @@ namespace CryptoPay.Types
     /// <summary>
     /// Exchange rates of supported currencies.
     /// </summary>
-    public sealed class ExchangeRate
+    public class ExchangeRate
     {
         /// <summary>
         /// Is valid.

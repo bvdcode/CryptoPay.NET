@@ -11,7 +11,7 @@ namespace CryptoPay.Requests.Base
     {
         #region Public Methods
 
-        /// <inheritdoc />
+
         public HttpContent ToHttpContent()
         {
             var options = new JsonSerializerOptions()
@@ -51,10 +51,10 @@ namespace CryptoPay.Requests.Base
 
         #region Public Fields
 
-        /// <inheritdoc />
+
         public HttpMethod Method { get; }
 
-        /// <inheritdoc />
+
         public string MethodName { get; }
 
         #endregion

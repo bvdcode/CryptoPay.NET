@@ -7,7 +7,7 @@ namespace CryptoPay.Requests
     /// <summary>
     /// Use this class to get <see cref="Transfer"/> request.
     /// </summary>
-    public sealed class TransferRequest
+    public class TransferRequest
         : ParameterlessRequest<Transfer>,
             ITransfer
     {
@@ -64,19 +64,19 @@ namespace CryptoPay.Requests
         /// </summary>
         public bool? DisableSendNotification { get; set; }
 
-        /// <inheritdoc />
+
         [JsonRequired]
         public long UserId { get; set; }
 
-        /// <inheritdoc />
+
         [JsonRequired]
         public string Asset { get; set; }
 
-        /// <inheritdoc />
+
         [JsonRequired]
         public double Amount { get; set; }
 
-        /// <inheritdoc />
+
         public string Comment { get; set; }
     }
 }

@@ -5,7 +5,7 @@ namespace CryptoPay.Types
     /// <summary>
     /// Supported currencies.
     /// </summary>
-    public sealed class Currency
+    public class Currency
     {
         /// <summary>
         /// Is blockchain.

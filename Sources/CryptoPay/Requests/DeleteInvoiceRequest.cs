@@ -6,7 +6,7 @@ namespace CryptoPay.Requests
     /// <summary>
     /// Use this method to delete invoices created by your app.
     /// </summary>
-    public sealed class DeleteInvoiceRequest
+    public class DeleteInvoiceRequest
         : ParameterlessRequest<bool>
     {
         #region Constructors

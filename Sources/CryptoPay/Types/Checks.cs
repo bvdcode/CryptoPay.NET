@@ -7,7 +7,7 @@ namespace CryptoPay.Types
     /// <summary>
     /// Object include list of <see cref="Check"/>.
     /// </summary>
-    public sealed class Checks
+    public class Checks
     {
         /// <summary>
         /// List of <see cref="Check"/>.

@@ -6,7 +6,7 @@ namespace CryptoPay.Responses
     /// <summary>
     /// Response with <see cref="Error"/>.
     /// </summary>
-    internal sealed class ApiResponseWithError : IResponse
+    internal class ApiResponseWithError : IResponse
     {
         /// <summary>
         /// Initializes an instance of <see cref="ApiResponseWithError" />

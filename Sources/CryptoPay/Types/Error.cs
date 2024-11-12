@@ -5,7 +5,7 @@ namespace CryptoPay.Types
     /// <summary>
     /// Error from response.
     /// </summary>
-    public sealed class Error
+    public class Error
     {
         /// <summary>
         /// Create instance of <see cref="Error"/>.

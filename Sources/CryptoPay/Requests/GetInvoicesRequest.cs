@@ -8,7 +8,7 @@ namespace CryptoPay.Requests
     /// <summary>
     /// Use this class to get <see cref="Invoices"/> request.
     /// </summary>
-    internal sealed class GetInvoicesRequest : ParameterlessRequest<Invoices>
+    internal class GetInvoicesRequest : ParameterlessRequest<Invoices>
     {
         #region Constructors
 

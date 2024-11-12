@@ -5,7 +5,7 @@ namespace CryptoPay.Types
     /// <summary>
     /// Basic information about an application.
     /// </summary>
-    public sealed class CryptoPayApplication
+    public class CryptoPayApplication
     {
         /// <summary>
         /// Your application Id.

@@ -9,12 +9,10 @@ namespace CryptoPay.Requests
     /// <summary>
     /// Use this class to create <see cref="Invoice"/> request.
     /// </summary>
-    public sealed class CreateInvoiceRequest
+    public class CreateInvoiceRequest
         : ParameterlessRequest<Invoice>,
             IInvoice
     {
-        #region Constructors
-
         /// <summary>
         /// Initializes a new request to create <see cref="Invoice"/>
         /// </summary>
@@ -43,73 +41,91 @@ namespace CryptoPay.Requests
         public CreateInvoiceRequest(
             double amount,
             CurrencyTypes currencyType = CurrencyTypes.crypto,
-            string asset = default,
-            string fiat = default,
-            IEnumerable<string> acceptedAssets = default,
-            string description = default,
-            string hiddenMessage = default,
-            PaidButtonNames? paidBtnName = default,
-            string paidBtnUrl = default,
-            string payload = default,
+            string? asset = null,
+            string? fiat = null,
+            IEnumerable<string>? acceptedAssets = null,
+            string? description = null,
+            string? hiddenMessage = null,
+            PaidButtonNames paidBtnName = default,
+            string? paidBtnUrl = null,
+            string? payload = null,
             bool allowComments = true,
             bool allowAnonymous = true,
             int expiresIn = 2678400)
             : base("createInvoice")
         {
-            this.CurrencyType = currencyType;
-            this.Amount = amount;
-            this.Asset = asset;
-            this.Fiat = fiat;
-            this.AcceptedAssets = acceptedAssets;
-            this.Description = description;
-            this.HiddenMessage = hiddenMessage;
-            this.PaidBtnName = paidBtnName;
-            this.PaidBtnUrl = paidBtnUrl;
-            this.Payload = payload;
-            this.AllowComments = allowComments;
-            this.AllowAnonymous = allowAnonymous;
-            this.ExpiresIn = expiresIn;
+            CurrencyType = currencyType;
+            Amount = amount;
+            Asset = asset;
+            Fiat = fiat;
+            AcceptedAssets = acceptedAssets;
+            Description = description;
+            HiddenMessage = hiddenMessage;
+            PaidBtnName = paidBtnName;
+            PaidBtnUrl = paidBtnUrl;
+            Payload = payload;
+            AllowComments = allowComments;
+            AllowAnonymous = allowAnonymous;
+            ExpiresIn = expiresIn;
         }
 
-        #endregion
+        /// <summary>
+        /// Currency code. Currently, can be one of <see cref="Assets"/>.
+        /// </summary>
+        public string? Asset { get; set; }
 
-        #region Public Fields
+        /// <summary>
+        /// Fiat currency code. Supported fiat currencies from <see cref="Assets"/>
+        /// </summary>
+        public string? Fiat { get; set; }
 
-        /// <inheritdoc />
-        public string Asset { get; set; }
-
-        /// <inheritdoc />
-        public string Fiat { get; set; }
-
-        /// <inheritdoc />
+        /// <summary>
+        /// Amount of the invoice in float. For example: 125.50
+        /// </summary>
         [JsonRequired]
         public double Amount { get; set; }
 
-        /// <inheritdoc />
-        public string Description { get; set; }
+        /// <summary>
+        /// Description for the invoice. User will see this description when they pay the invoice. Up to 1024 characters.
+        /// </summary>
+        public string? Description { get; set; }
 
-        /// <inheritdoc />
-        public string HiddenMessage { get; set; }
+        /// <summary>
+        /// Text of the message that will be shown to a user after the invoice is paid. Up to 2048 characters.
+        /// </summary>
+        public string? HiddenMessage { get; set; }
 
-        /// <inheritdoc />
-        public PaidButtonNames? PaidBtnName { get; set; }
+        /// <summary>
+        /// Name of the button that will be shown to a user after the invoice is paid.
+        /// </summary>
+        public PaidButtonNames PaidBtnName { get; set; }
 
-        /// <inheritdoc />
-        public string PaidBtnUrl { get; set; }
+        /// <summary>
+        /// URL to be opened when the button is pressed.
+        /// </summary>
+        public string? PaidBtnUrl { get; set; } = string.Empty;
 
-        /// <inheritdoc />
-        public string Payload { get; set; }
+        /// <summary>
+        /// Optional. Any data you want to attach to the invoice (for example, user ID, payment ID, ect). Up to 4kb.
+        /// </summary>
+        public string? Payload { get; set; }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Optional. Allow a user to add a comment to the payment. Default is true.
+        /// </summary>
         public bool? AllowComments { get; set; }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Type of the price, can be <see cref="CurrencyTypes.crypto"/> or <see cref="CurrencyTypes.fiat"/>. Defaults to crypto.
+        /// </summary>
         [JsonRequired]
         public CurrencyTypes CurrencyType { get; set; }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// List of cryptocurrency alphabetic codes. Assets which can be used to pay the invoice.
+        /// </summary>
         [JsonConverter(typeof(ArrayToStringConverter))]
-        public IEnumerable<string> AcceptedAssets { get; set; }
+        public IEnumerable<string>? AcceptedAssets { get; set; }
 
         /// <summary>
         /// Optional. Allow a user to pay the invoice anonymously. Default is true.
@@ -120,7 +136,5 @@ namespace CryptoPay.Requests
         /// Optional. You can set a payment time limit for the invoice in seconds. Values between 1-2678400 are accepted.
         /// </summary>
         public int ExpiresIn { get; set; }
-
-        #endregion
     }
 }

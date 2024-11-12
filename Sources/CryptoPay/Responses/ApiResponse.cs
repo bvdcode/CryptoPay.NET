@@ -6,7 +6,7 @@ namespace CryptoPay.Responses
     /// Represents bot API response
     /// </summary>
     /// <typeparam name="TResult">Expected type of operation result</typeparam>
-    internal sealed class ApiResponse<TResult> : IResponse<TResult>
+    internal class ApiResponse<TResult> : IResponse<TResult>
     {
         /// <summary>
         /// Initializes an instance of <see cref="ApiResponse{TResult}" />
@@ -24,10 +24,10 @@ namespace CryptoPay.Responses
         [JsonConstructor]
         private ApiResponse() { }
 
-        /// <inheritdoc />
+
         public bool Ok { get; set; }
 
-        /// <inheritdoc />
+
         public TResult Result { get; set; }
     }
 }

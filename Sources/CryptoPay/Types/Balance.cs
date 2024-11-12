@@ -5,7 +5,7 @@ namespace CryptoPay.Types
     /// <summary>
     /// Balance of your application.
     /// </summary>
-    public sealed class Balance
+    public class Balance
     {
         /// <summary>
         /// Current currency.

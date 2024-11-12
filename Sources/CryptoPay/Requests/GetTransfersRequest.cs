@@ -7,7 +7,7 @@ namespace CryptoPay.Requests
     /// <summary>
     ///  Use this class to get list of <see cref="Transfer"/> request.
     /// </summary>
-    public sealed class GetTransfersRequest : ParameterlessRequest<Transfers>
+    public class GetTransfersRequest : ParameterlessRequest<Transfers>
     {
         #region Constructors
 

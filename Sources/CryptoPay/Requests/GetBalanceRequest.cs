@@ -7,7 +7,7 @@ namespace CryptoPay.Requests
     /// <summary>
     /// Use this class to create <see cref="Balance"/> request.
     /// </summary>
-    internal sealed class GetBalanceRequest : ParameterlessRequest<List<Balance>>
+    internal class GetBalanceRequest : ParameterlessRequest<List<Balance>>
     {
         /// <summary>
         /// Initializes a new request to get <see cref="Balance"/>.

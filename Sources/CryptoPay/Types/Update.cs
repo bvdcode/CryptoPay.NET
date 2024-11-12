@@ -11,7 +11,7 @@ namespace CryptoPay.Types
     /// and the hexadecimal representation of HMAC-SHA-256 signature used to sign the entire request body (unparsed JSON string)
     /// with a secret key that is SHA256 hash of your app's token.
     /// </summary>
-    public sealed class Update
+    public class Update
     {
         /// <summary>
         /// Non-unique update ID.

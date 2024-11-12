@@ -9,7 +9,7 @@ namespace CryptoPay.Tests.TestData;
 /// <summary>
 /// For this test, you must have test coins.
 /// </summary>
-public sealed class GetTransfersData : TheoryData<HttpStatusCode, Error?, TransferRequest>
+public class GetTransfersData : TheoryData<HttpStatusCode, Error?, TransferRequest>
 {
     public GetTransfersData()
     {

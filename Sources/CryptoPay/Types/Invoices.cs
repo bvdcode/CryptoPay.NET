@@ -6,7 +6,7 @@ namespace CryptoPay.Types
     /// <summary>
     /// List of <see cref="Invoice"/>. You can get invoices use <see cref="CryptoPay.CryptoPayExtensions.GetInvoicesAsync"/>
     /// </summary>
-    public sealed class Invoices
+    public class Invoices
     {
         /// <summary>
         /// List of <see cref="Invoice"/>.

@@ -7,7 +7,7 @@ namespace CryptoPay.Requests
     /// <summary>
     /// Use this request to get checks created by your app. On success, returns array of <see cref="Check"/>.
     /// </summary>
-    public sealed class GetChecksRequest : ParameterlessRequest<Checks>
+    public class GetChecksRequest : ParameterlessRequest<Checks>
     {
         #region Constructors
 

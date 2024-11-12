@@ -4,23 +4,19 @@ using System.Net.Http;
 using System.Threading;
 using CryptoPay.Responses;
 using CryptoPay.Extensions;
+using CryptoPay.Exceptions;
 using System.Threading.Tasks;
 using CryptoPay.Requests.Base;
-using System.Runtime.CompilerServices;
 
 namespace CryptoPay
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// The main class for interacting with the CryptoPay service.
+    /// </summary>
     public class CryptoPayClient : ICryptoPayClient
     {
-        #region Private Fields
-
-        private readonly HttpClient httpClient;
+        private readonly HttpClient _httpClient;
         private const string defaultCryptoBotApiUrl = "https://pay.crypt.bot/";
-
-        #endregion
-
-        #region Constructors
 
         /// <summary>
         /// Create <see cref="ICryptoPayClient" /> instance.
@@ -29,34 +25,56 @@ namespace CryptoPay
         /// <param name="httpClient">Optional. <see cref="HttpClient" />.</param>
         /// <param name="apiUrl">
         /// Optional. Default value is <see cref="defaultCryptoBotApiUrl" /> main api url.
-        /// Test api url is <code>https://testnet-pay.crypt.bot/</code>.
         /// </param>
         /// <exception cref="ArgumentNullException">If token is null.</exception>
         public CryptoPayClient(string token, HttpClient? httpClient = null, string? apiUrl = default)
         {
-            this.httpClient = httpClient ?? new HttpClient();
-            this.httpClient.BaseAddress = new Uri(apiUrl ?? defaultCryptoBotApiUrl);
-            this.httpClient.DefaultRequestHeaders.Add(
-                "Crypto-Pay-API-Token",
-                string.IsNullOrEmpty(token)
-                    ? throw new ArgumentNullException(nameof(token))
-                    : token);
+            if (string.IsNullOrWhiteSpace(token))
+            {
+                throw new ArgumentNullException(nameof(token));
+            }
+            _httpClient = httpClient ?? new HttpClient();
+            _httpClient.BaseAddress = new Uri(apiUrl ?? defaultCryptoBotApiUrl);
+            _httpClient.DefaultRequestHeaders.Add("Crypto-Pay-API-Token", token);
         }
 
         /// <summary>
         /// Create <see cref="ICryptoPayClient" /> instance.
         /// </summary>
+        /// <param name="token">Your application token from CryptoPay.</param>
+        /// <exception cref="ArgumentNullException">If token is null.</exception>
+        public CryptoPayClient(string token) : this(token, null, null) { }
+
+        /// <summary>
+        /// Create <see cref="ICryptoPayClient" /> instance.
+        /// </summary>
+        /// <param name="token">Your application token from CryptoPay.</param>
+        /// <param name="useTestnet">If true, then use testnet url: <code>https://testnet-pay.crypt.bot/</code>, otherwise use main url: <code>https://pay.crypt.bot/</code>.</param>
+        public CryptoPayClient(string token, bool useTestnet)
+            : this(token, null, useTestnet ? "https://testnet-pay.crypt.bot/" : null) { }
+
+        /// <summary>
+        /// Create <see cref="ICryptoPayClient" /> instance with custom <see cref="HttpClient" />.
+        /// Note: You should set base address and headers by yourself.
+        /// This constructor was left for backward compatibility.
+        /// </summary>
         /// <param name="httpClient"><see cref="HttpClient"/></param>
         public CryptoPayClient(HttpClient httpClient)
         {
-            this.httpClient = httpClient;
+            _httpClient = httpClient;
         }
 
-        #endregion
-
-        #region Public Methods
-
-        /// <inheritdoc />
+        /// <summary>
+        /// Make raw request to CryptoPay service.
+        /// </summary>
+        /// <param name="request">Type of request <see cref="IRequest" /></param>
+        /// <param name="cancellationToken">
+        /// A cancellation token that can be used by other objects or threads to receive notice of
+        /// cancellation.
+        /// </param>
+        /// <returns>Instance type of TResponse</returns>
+        /// <exception cref="RequestException">This exception can be thrown if request is not successful.</exception>
+        /// <exception cref="ArgumentNullException">If request is null.</exception>
         public async Task<TResponse> MakeRequestAsync<TResponse>(
             IRequest<TResponse> request,
             CancellationToken cancellationToken = default)
@@ -66,13 +84,13 @@ namespace CryptoPay
                 throw new ArgumentNullException(nameof(request));
             }
 
-            var url = $"{this.httpClient.BaseAddress}api/{request.MethodName}";
+            var url = $"{_httpClient.BaseAddress}api/{request.MethodName}";
 
             using HttpRequestMessage httpRequest = new HttpRequestMessage(request.Method, url);
             httpRequest.Content = request.ToHttpContent();
 
             using var httpResponse = await SendRequestAsync(
-                    this.httpClient,
+                    _httpClient,
                     httpRequest,
                     cancellationToken)
                 .ConfigureAwait(false);
@@ -96,7 +114,6 @@ namespace CryptoPay
             return apiResponse.Result!;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static async Task<HttpResponseMessage> SendRequestAsync(HttpClient httpClient, HttpRequestMessage httpRequest, CancellationToken cancellationToken)
         {
             HttpResponseMessage httpResponse;
@@ -125,18 +142,5 @@ namespace CryptoPay
 
             return httpResponse;
         }
-
-        #endregion
-
-        #region Private Methods
-
-        private static long GetApplicationId(string token)
-        {
-            ReadOnlySpan<char> dataAsSpan = token;
-            var endInd = token.IndexOf(":", StringComparison.Ordinal);
-            return long.Parse(dataAsSpan.Slice(0, endInd));
-        }
-
-        #endregion
     }
 }

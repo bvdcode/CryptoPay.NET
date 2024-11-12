@@ -5,7 +5,7 @@ namespace CryptoPay.Requests
     /// <summary>
     /// Use this request to delete checks created by your app. Returns True on success.
     /// </summary>
-    public sealed class DeleteCheckRequest : ParameterlessRequest<bool>
+    public class DeleteCheckRequest : ParameterlessRequest<bool>
     {
         #region Constructors
 

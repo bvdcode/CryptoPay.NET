@@ -6,7 +6,7 @@ namespace CryptoPay.Types
     /// <summary>
     /// This class have to manage checks by using the app.
     /// </summary>
-    public sealed class Check
+    public class Check
     {
         #region Public Fields
 

@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 namespace CryptoPay.Types
 {
     /// <inheritdoc />
-    public sealed class Transfer : ITransfer
+    public class Transfer : ITransfer
     {
         /// <summary>
         /// Unique ID for this transfer.

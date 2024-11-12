@@ -7,7 +7,7 @@ namespace CryptoPay.Requests
     /// <summary>
     /// Use this method to create a new check. On success, returns an object of the created <see cref="Check"/>.
     /// </summary>
-    public sealed class CreateCheckRequest : ParameterlessRequest<Check>
+    public class CreateCheckRequest : ParameterlessRequest<Check>
     {
         #region Constructors
 

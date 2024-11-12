@@ -5,7 +5,7 @@ using Xunit;
 
 namespace CryptoPay.Tests.TestData;
 
-public sealed class DeleteInvoicesData : TheoryData<HttpStatusCode, Error?, CreateInvoiceRequest>
+public class DeleteInvoicesData : TheoryData<HttpStatusCode, Error?, CreateInvoiceRequest>
 {
     public DeleteInvoicesData()
     {
