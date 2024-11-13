@@ -64,7 +64,7 @@ namespace CryptoPay
             IEnumerable<string>? acceptedAssets = null,
             string? description = null,
             string? hiddenMessage = null,
-            PaidButtonName paidBtnName = default,
+            PaidButtonName? paidBtnName = null,
             string? paidBtnUrl = null,
             string? payload = null,
             bool allowComments = true,

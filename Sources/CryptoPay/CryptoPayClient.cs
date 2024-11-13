@@ -95,6 +95,8 @@ namespace CryptoPay
                     cancellationToken)
                 .ConfigureAwait(false);
 
+            string json = await httpResponse.Content.ReadAsStringAsync();
+
             if (httpResponse.StatusCode != HttpStatusCode.OK)
             {
                 await httpResponse

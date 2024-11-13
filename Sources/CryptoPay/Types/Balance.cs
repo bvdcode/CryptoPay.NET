@@ -11,6 +11,7 @@ namespace CryptoPay.Types
         /// Current currency.
         /// </summary>
         [JsonRequired]
+        [JsonPropertyName("currency_code")]
         public Assets CurrencyCode { get; set; }
 
         /// <summary>

@@ -16,8 +16,8 @@ public class CreateCheckData : TheoryData<HttpStatusCode, Error?, CreateCheckReq
             default,
             default,
             new CreateCheckRequest(
-                Assets.BNB.ToString(),
-                0.0123,
+                Assets.USDT.ToString(),
+                0.0223,
                 default,
                 default));
 
@@ -25,8 +25,8 @@ public class CreateCheckData : TheoryData<HttpStatusCode, Error?, CreateCheckReq
             default,
             default,
             new CreateCheckRequest(
-                Assets.BNB.ToString(),
-                0.0121,
+                Assets.USDT.ToString(),
+                0.0221,
                 CryptoPayTestHelper.UserId,
                 default)
         );
@@ -35,8 +35,8 @@ public class CreateCheckData : TheoryData<HttpStatusCode, Error?, CreateCheckReq
             default,
             default,
             new CreateCheckRequest(
-                Assets.BNB.ToString(),
-                0.0122,
+                Assets.USDT.ToString(),
+                0.0222,
                 default,
                 "@userName")
         );

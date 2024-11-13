@@ -96,12 +96,12 @@ namespace CryptoPay.Types
         /// <summary>
         /// Optional. Name of the button, can be one of <see cref="PaidButtonName"/>.
         /// </summary>
-        public PaidButtonName PaidBtnName { get; set; }
+        public PaidButtonName? PaidBtnName { get; set; }
 
         /// <summary>
         /// Optional. URL of the button.
         /// </summary>
-        public string? PaidBtnUrl { get; set; } = string.Empty;
+        public string? PaidBtnUrl { get; set; }
 
         /// <summary>
         /// Type of the price, can be one of <see cref="Types.CurrencyType"/>.
@@ -146,7 +146,7 @@ namespace CryptoPay.Types
         /// Optional. Fiat currency code. Available only if the value of the field <see cref="CurrencyType"/> is <see cref="CurrencyType.Fiat"/>.
         /// Currently one of fiat from <see cref="Assets"/>.
         /// </summary>
-        public string? Fiat { get; set; } = string.Empty;
+        public string? Fiat { get; set; }
 
         /// <summary>
         /// Optional. Cryptocurrency alphabetic code for which the invoice was paid.

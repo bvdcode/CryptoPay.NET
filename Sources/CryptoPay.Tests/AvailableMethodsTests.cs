@@ -370,10 +370,7 @@ public class AvailableMethodsTests
     {
         try
         {
-            var stats = await cryptoPayClient.GetStatsAsync(
-                getStatsRequest.StartAt,
-                getStatsRequest.EndAt,
-                this.cancellationToken);
+            var stats = await cryptoPayClient.GetStatsAsync(getStatsRequest.StartAt, getStatsRequest.EndAt, cancellationToken);
 
             Assert.NotNull(stats);
             Assert.True(getStatsRequest.StartAt.IsCloseTo(stats.StartAt, TimeSpan.FromMilliseconds(100)));

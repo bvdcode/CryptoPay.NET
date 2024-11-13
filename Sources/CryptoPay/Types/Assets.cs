@@ -186,7 +186,22 @@ namespace CryptoPay.Types
         /// <summary>
         /// Tajikistani somoni
         /// </summary>
-        TJS = 121
+        TJS = 121,
+
+        /// <summary>
+        /// Solana
+        /// </summary>
+        SOL = 122,
+
+        /// <summary>
+        /// Dogecoin
+        /// </summary>
+        DOGE = 123,
+
+        /// <summary>
+        /// Send
+        /// </summary>
+        SEND = 124
     }
 }
 

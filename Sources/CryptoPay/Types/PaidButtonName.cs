@@ -12,25 +12,25 @@ namespace CryptoPay.Types
         /// <summary>
         /// View item button.
         /// </summary>
-        [JsonPropertyName("viewItem")]
+        [JsonStringEnumMemberName("viewItem")]
         ViewItem,
 
         /// <summary>
         /// Open channel button.
         /// </summary>
-        [JsonPropertyName("openChannel")]
+        [JsonStringEnumMemberName("openChannel")]
         OpenChannel,
 
         /// <summary>
         /// Open bot button.
         /// </summary>
-        [JsonPropertyName("openBot")]
+        [JsonStringEnumMemberName("openBot")]
         OpenBot,
 
         /// <summary>
         /// Callback button.
         /// </summary>
-        [JsonPropertyName("callback")]
+        [JsonStringEnumMemberName("callback")]
         Callback
     }
 }

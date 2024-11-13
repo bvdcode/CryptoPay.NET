@@ -6,7 +6,6 @@ namespace CryptoPay.Types
     /// <summary>
     /// Error from response.
     /// </summary>
-    [Serializable]
     public class Error
     {
         /// <summary>

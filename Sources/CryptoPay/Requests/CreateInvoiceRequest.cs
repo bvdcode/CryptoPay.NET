@@ -46,7 +46,7 @@ namespace CryptoPay.Requests
             IEnumerable<string>? acceptedAssets = null,
             string? description = null,
             string? hiddenMessage = null,
-            PaidButtonName paidBtnName = default,
+            PaidButtonName? paidBtnName = null,
             string? paidBtnUrl = null,
             string? payload = null,
             bool allowComments = true,
@@ -98,12 +98,12 @@ namespace CryptoPay.Requests
         /// <summary>
         /// Name of the button that will be shown to a user after the invoice is paid.
         /// </summary>
-        public PaidButtonName PaidBtnName { get; set; }
+        public PaidButtonName? PaidBtnName { get; set; }
 
         /// <summary>
         /// URL to be opened when the button is pressed.
         /// </summary>
-        public string? PaidBtnUrl { get; set; } = string.Empty;
+        public string? PaidBtnUrl { get; set; }
 
         /// <summary>
         /// Optional. Any data you want to attach to the invoice (for example, user ID, payment ID, ect). Up to 4kb.

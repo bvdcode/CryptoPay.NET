@@ -8,7 +8,6 @@ namespace CryptoPay.Requests
     /// <summary>
     ///  Use this request to get application statistics. On success, returns <see cref="AppStats"/>.
     /// </summary>
-    [Serializable]
     public class GetStatsRequest : ParameterlessRequest<AppStats>
     {
         #region Constructors

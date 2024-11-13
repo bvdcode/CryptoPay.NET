@@ -45,7 +45,7 @@ namespace CryptoPay.Types
         /// <summary>
         /// Optional. Name of the button, can be one of <see cref="PaidButtonName" />.
         /// </summary>
-        public PaidButtonName PaidBtnName { get; set; }
+        public PaidButtonName? PaidBtnName { get; set; }
 
         /// <summary>
         /// Optional. URL of the button.

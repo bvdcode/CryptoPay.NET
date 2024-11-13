@@ -41,7 +41,7 @@ public class TransferData : TheoryData<HttpStatusCode, Error?, TransferRequest>
             default,
             new TransferRequest(
                 CryptoPayTestHelper.UserId,
-                Assets.BNB.ToString(),
+                Assets.USDT.ToString(),
                 0.0123,
                 Guid.NewGuid().ToString(),
                 disableSendNotification: false)

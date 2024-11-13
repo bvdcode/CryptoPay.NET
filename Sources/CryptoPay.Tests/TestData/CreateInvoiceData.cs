@@ -28,8 +28,8 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
             default,
             default,
             new CreateInvoiceRequest(
-                5.105,
-                asset: Assets.TON.ToString(),
+                0.205,
+                asset: Assets.USDT.ToString(),
                 description: "description",
                 hiddenMessage: "hiddenMessage",
                 paidBtnName: PaidButtonName.Callback,

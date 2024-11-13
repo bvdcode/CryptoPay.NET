@@ -44,9 +44,9 @@ namespace CryptoPay.Requests
         }
 
         /// <summary>
-        /// One of the <see cref="TransferStatuses"/>
+        /// One of the <see cref="TransferStatus"/>
         /// </summary>
-        public TransferStatuses? Status { get; set; }
+        public TransferStatus? Status { get; set; }
 
         /// <summary>
         /// Unique ID to make your request idempotent and ensure that only one of the transfers with the same spend_id will be

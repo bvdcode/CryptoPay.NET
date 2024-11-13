@@ -7,7 +7,7 @@
         <FileVersion>0.1.2</FileVersion>
         <OutputType>Library</OutputType>
         <LangVersion>12</LangVersion>
-        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+        <TargetFrameworks>net9.0</TargetFrameworks>
     </PropertyGroup>
 
     <ItemGroup>

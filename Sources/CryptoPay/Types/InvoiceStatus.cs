@@ -11,19 +11,19 @@ namespace CryptoPay.Types
         /// <summary>
         /// The invoice is active.
         /// </summary>
-        [JsonPropertyName("active")]
+        [JsonStringEnumMemberName("active")]
         Active,
 
         /// <summary>
         /// The invoice is paid.
         /// </summary>
-        [JsonPropertyName("paid")]
+        [JsonStringEnumMemberName("paid")]
         Paid,
 
         /// <summary>
         /// The invoice is expired.
         /// </summary>
-        [JsonPropertyName("expired")]
+        [JsonStringEnumMemberName("expired")]
         Expired
     }
 }
