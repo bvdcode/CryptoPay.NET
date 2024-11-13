@@ -5,7 +5,7 @@ public static class CryptoPayTestHelper
     /// <summary>
     /// Your test application token.
     /// </summary>
-    public static string Token = "14083:AAlfNRQVaJf1mMR6sKOYmYfVLWIID9dUjOI";
+    public static string Token = "12345:bVIUwB41w2HWnQmP2z1O96YuN9iiyoc4";
 
     /// <summary>
     /// Crypto Testnet Bot api url.
@@ -15,5 +15,5 @@ public static class CryptoPayTestHelper
     /// <summary>
     /// Real UserId.
     /// </summary>
-    public static long UserId = 5644327613;
+    public static long UserId = 1231231231;
 }
