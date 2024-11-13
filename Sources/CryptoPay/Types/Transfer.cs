@@ -15,7 +15,7 @@ namespace CryptoPay.Types
         /// <summary>
         /// Optional. Unique UTF-8 string. 
         /// </summary>
-        public string SpendId { get; set; }
+        public string SpendId { get; set; } = string.Empty;
 
         /// <inheritdoc/>
         [JsonRequired]
@@ -23,7 +23,7 @@ namespace CryptoPay.Types
 
         /// <inheritdoc/>
         [JsonRequired]
-        public string Asset { get; set; }
+        public string Asset { get; set; } = string.Empty;
 
         /// <inheritdoc/>
         [JsonRequired]
@@ -41,8 +41,9 @@ namespace CryptoPay.Types
         [JsonRequired]
         public DateTime CompletedAt { get; set; }
 
-        /// <inheritdoc/>
-
-        public string Comment { get; set; }
+        /// <summary>
+        /// Optional. Comment for this transfer.
+        /// </summary>
+        public string? Comment { get; set; } = string.Empty;
     }
 }

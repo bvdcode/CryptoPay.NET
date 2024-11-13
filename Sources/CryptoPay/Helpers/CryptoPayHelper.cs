@@ -3,7 +3,7 @@ using System.Text;
 using CryptoPay.Types;
 using System.Security.Cryptography;
 
-namespace CryptoPay
+namespace CryptoPay.Helpers
 {
     /// <summary>
     /// Helper for main <see cref="CryptoPayClient"/>.

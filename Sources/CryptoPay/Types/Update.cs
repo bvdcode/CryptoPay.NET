@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.Json;
+using CryptoPay.Helpers;
 using System.Text.Json.Serialization;
 
 namespace CryptoPay.Types
@@ -35,7 +36,7 @@ namespace CryptoPay.Types
         /// <summary>
         /// Payload of the update.
         /// </summary>
-        public Invoice Payload { get; set; }
+        public Invoice? Payload { get; set; }
 
         /// <summary>
         /// Serialize object to string.

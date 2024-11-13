@@ -1,7 +1,7 @@
 ﻿using System;
 using CryptoPay.Types;
 
-namespace CryptoPay
+namespace CryptoPay.Helpers
 {
     /// <summary>
     /// Helper class for working with assets in the CryptoPay.

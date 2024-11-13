@@ -1,15 +1,16 @@
+using Xunit;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-using CryptoPay.Exceptions;
-using CryptoPay.Requests;
-using CryptoPay.Tests.TestData;
 using CryptoPay.Types;
-using Xunit;
+using System.Threading;
+using CryptoPay.Helpers;
+using CryptoPay.Requests;
+using CryptoPay.Exceptions;
+using System.Threading.Tasks;
+using CryptoPay.Tests.TestData;
+using System.Collections.Generic;
 
 #pragma warning disable CS0618 // Type or member is obsolete
 namespace CryptoPay.Tests;
@@ -65,8 +66,8 @@ public class AvailableMethodsTests
             var application = await localCryptoPayClient.GetMeAsync(cancellationToken);
 
             Assert.NotNull(application);
-            Assert.NotEmpty(application.Name);
-            Assert.NotEmpty(application.PaymentProcessingBotUsername);
+            Assert.NotEmpty(application.Name!);
+            Assert.NotEmpty(application.PaymentProcessingBotUsername!);
         }
         catch (ArgumentNullException argumentNullException)
         {
@@ -108,7 +109,7 @@ public class AvailableMethodsTests
             Assert.Equal(invoiceRequest.Amount, invoice.Amount);
             Assert.Equal(invoiceRequest.CurrencyType, invoice.CurrencyType);
             Assert.Equal(invoiceRequest.Asset, invoice.Asset);
-            Assert.Equal(AssetsHelper.TryParse(invoiceRequest.Asset), AssetsHelper.TryParse(invoice.Asset));
+            Assert.Equal(AssetsHelper.TryParse(invoiceRequest.Asset!), AssetsHelper.TryParse(invoice.Asset!));
             Assert.Equal(invoiceRequest.Fiat, invoice.Fiat);
             Assert.Equal(invoiceRequest.Description, invoice.Description);
             Assert.Equal(invoiceRequest.HiddenMessage, invoice.HiddenMessage);
@@ -123,7 +124,7 @@ public class AvailableMethodsTests
             {
                 if (invoiceRequest.AcceptedAssets is null)
                 {
-                    Assert.NotEmpty(invoice.AcceptedAssets);
+                    Assert.NotEmpty(invoice.AcceptedAssets!);
                 }
                 else
                 {
@@ -347,15 +348,12 @@ public class AvailableMethodsTests
                 createCheckRequest.Amount,
                 createCheckRequest.PinToUserId,
                 createCheckRequest.PinToUsername,
-                this.cancellationToken);
+                cancellationToken);
 
             Assert.NotNull(check);
 
-            var assets = new[] { check.Asset, Enum.GetName(Assets.BTC) };
-            var checks = await cryptoPayClient.GetChecksAsync(
-                assets,
-                [check.CheckId],
-                cancellationToken: this.cancellationToken);
+            string[]? assets = [check.Asset, Enum.GetName(Assets.BTC)!];
+            var checks = await cryptoPayClient.GetChecksAsync(assets, [check.CheckId], cancellationToken: cancellationToken);
 
             Assert.NotNull(checks);
             Assert.True(checks.Items.Any());

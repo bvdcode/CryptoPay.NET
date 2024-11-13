@@ -1,6 +1,6 @@
-﻿using System.Text.Json.Serialization;
+﻿using CryptoPay.Helpers;
+using System.Text.Json.Serialization;
 
-#pragma warning disable CS1591
 namespace CryptoPay.Types
 {
     // ReSharper disable InconsistentNaming
