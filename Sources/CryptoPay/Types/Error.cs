@@ -20,7 +20,7 @@ namespace CryptoPay.Types
         }
 
         [JsonConstructor]
-        private Error() {}
+        private Error() { }
 
         /// <summary>
         /// Error code from response.

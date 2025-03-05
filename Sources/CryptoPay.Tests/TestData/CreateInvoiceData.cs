@@ -76,7 +76,7 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
                 false,
                 360)
         );
-        
+
         this.Add(
             default,
             default,
@@ -85,7 +85,7 @@ public class CreateInvoiceData : TheoryData<HttpStatusCode, Error?, CreateInvoic
                 CurrencyType.Fiat,
                 default,
                 Assets.EUR.ToString(),
-                new []{ Assets.TON.ToString(), Assets.USDT.ToString() },
+                [Assets.TON.ToString(), Assets.USDT.ToString()],
                 "description",
                 "hiddenMessage")
         );

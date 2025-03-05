@@ -12,13 +12,13 @@ namespace CryptoPay.Types
         /// </summary>
         [JsonRequired]
         public bool IsValid { get; set; }
-    
+
         /// <summary>
         /// True, if the source is the cryptocurrency.
         /// </summary>
         [JsonRequired]
         public bool IsCrypto { get; set; }
-    
+
         /// <summary>
         /// True, if the source is the fiat currency.
         /// </summary>

@@ -23,7 +23,7 @@ public class DeleteInvoicesData : TheoryData<HttpStatusCode, Error?, CreateInvoi
                 allowComments: false,
                 allowAnonymous: false, expiresIn: 1800)
         );
-        
+
         this.Add(
             default,
             default,
