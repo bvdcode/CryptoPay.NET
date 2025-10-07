@@ -235,7 +235,7 @@ public class AvailableMethodsTests
         Error error,
         IList<string> assets,
         IList<long> invoiceIds,
-        InvoiceStatus status,
+        InvoiceStatus? status,
         int offset,
         int count)
     {

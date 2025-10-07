@@ -221,7 +221,7 @@ namespace CryptoPay
             this ICryptoPayClient cryptoPayClientClient,
             IEnumerable<string>? assets = null,
             IEnumerable<long>? invoiceIds = null,
-            InvoiceStatus status = default,
+            InvoiceStatus? status = null,
             int offset = 0,
             int count = 100,
             CancellationToken cancellationToken = default) =>
